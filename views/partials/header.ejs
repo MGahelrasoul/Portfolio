@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Portfolio</title>
+        <link rel="icon" href="imgs/MG.png">
+        <script src="https://kit.fontawesome.com/56406a3820.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="stylesheets/app.css">
+    </head>
+    <body>
+        <div class="site-wrap">
+
+            <section class="hero" id="top-hero" style="background-image: url('/imgs/bg.png');">
+                <!-- navbar -->
+                <div class="navbar" id="topnav">
+                    <!-- logo -->
+                    <a href="#" class="logo"><img src="imgs/MG.png"></a>
+
+                    <!-- side items -->
+                    <div class="main-nav">
+                        <a href="#Home" id="top-btn">Home</a>
+                        <a href="#Skills" id="skills-btn">Skills</a>
+                        <a href="#Projects" id="projects-btn">Projects</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item gallery-btn" href="#Gallery">Gallery</a>
+                            <a class="dropdown-item taste-btn" href="#Taste">Taste</a>
+                            <a class="dropdown-item findingFarmers-btn" href="#FindingFarmers">Finding Farmers</a>
+                            <a class="dropdown-item yelpCamp-btn" href="#YelpCamp">Yelp Camp</a>
+                            <a class="dropdown-item techBlog-btn" href="#TechBlog">Tech Blog</a>
+                            <a class="dropdown-item tetris-btn" href="#Tetris">Tetris</a>
+                            <!-- <a class="dropdown-item product-btn" href="#Product">Product</a> -->
+                            <!-- <a class="dropdown-item logos-btn" href="#Logos">Logos</a> -->
+                        </div>
+                        <a href="#Contact" id="contact-btn">Contact</a>
+                    </div>
+                </div>
+
+                <div class="prompt">
+                    <% if(error && error.length > 0){ %>
+                        <div class="alert alert-danger alert-dismissable fade show" role="alert">
+                            <%= error %>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <% } %>
+                    <% if(success && success.length > 0){ %>
+                        <div class="alert alert-success alert-dismissable fade show" role="alert">
+                            <%= success %>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <% } %>
+                </div>
+
+                <div class="top-wrap">
+                    <div class="top-inner fadeFirstDown">
+                        <h1 class="hello">Hello,</h1>
+                        <div class="hello-line"></div>
+                        <p class="lead fadeSecondDown">
+                            My name is Mohammed Gahelrasoul. <br>I'm a full-stack web developer.
+                        </p>
+                    </div>
+                </div>
+
+            </section>

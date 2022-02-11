@@ -1,0 +1,84 @@
+<%- include('./partials/header') %>
+
+                <div class="main fadeInDown">
+                    <div class="lead text-center mb-5">
+                        Welcome to our Journey into Technology
+                    </div>
+                    <div class="inner-main">
+                        <div class="feature">
+                            <div class="outer-card">
+                                <div class="card featured-card">
+                                    <div class="card-img">
+                                        <a href="/techblog/blogs/<%= blogs[blogs.length - 1]._id %>" class="">
+                                            <img class="first-images" src="<%= blogs[blogs.length - 1].image %>">
+                                        </a>
+                                    </div>
+                                    <div class="card-body">
+                                        <a class="caption" href="/techblog/blogs/<%= blogs[blogs.length - 1]._id %>">
+                                            <h2 class="title">
+                                                <%=blogs[blogs.length - 1].title%>
+                                            </h2>
+                                        </a>
+                                        <span class="meta text-muted"><%= blogs[blogs.length - 1].created.toDateString() %></span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="outer-card">
+                                <div class="card featured-card">
+                                    <div class="card-img">
+                                        <a href="/techblog/blogs/<%= blogs[blogs.length - 2]._id %>" class="">
+                                            <img class="first-images" src="<%= blogs[blogs.length - 2].image %>">
+                                        </a>
+                                    </div>
+                                    <div class="card-body">
+                                        <a class="caption" href="/techblog/blogs/<%= blogs[blogs.length - 2]._id %>">
+                                            <h3 class="title">
+                                                <%=blogs[blogs.length - 2].title%>
+                                            </h3>
+                                        </a>
+                                        <span class="meta text-muted"><%= blogs[blogs.length - 2].created.toDateString() %></span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="outer-card">
+                                <div class="card featured-card">
+                                    <div class="card-img">
+                                        <a href="/techblog/blogs/<%= blogs[blogs.length - 3]._id %>" class="">
+                                            <img class="first-images" src="<%= blogs[blogs.length - 3].image %>">
+                                        </a>
+                                    </div>
+                                    <div class="card-body">
+                                        <a class="caption" href="/techblog/blogs/<%= blogs[blogs.length - 3]._id %>">
+                                            <h3 class="title">
+                                                <%=blogs[blogs.length - 3].title%>
+                                            </h3>
+                                        </a>
+                                        <span class="meta text-muted"><%= blogs[blogs.length - 3].created.toDateString() %></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-left posts">
+                            <div class="inner-posts">
+                                <p class="lead" id="recent-posts">Recent Posts</p>
+                                <% for(let i=blogs.length-4;i >= 0; i--) { %>
+                                    <div class="post-item">
+                                            <a class="post-head" href="/techblog/blogs/<%= blogs[i]._id %>"><%=blogs[i].title%></a>
+                                        <div class="meta text-muted post-time">
+                                            <span><%= blogs[i].created.toDateString() %></span>
+                                        </div>
+                                        <div class="">
+                                            <p><%= blogs[i].body.substring(0, 200) %>...</p>
+                                            <a class="ui" href="/techblog/blogs/<%= blogs[i]._id %>">
+                                                Read More >
+                                            </a>
+                                        </div>
+                                    </div>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+
+<%- include('./partials/footer') %>

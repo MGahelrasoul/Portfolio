@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Taste</title>
+    <link rel="icon" href="imgs/icon_Taste.png">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheets/taste.css">
+    <script src="https://kit.fontawesome.com/56406a3820.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand navbar-dark fixed-left">
+        <div class="nav-wrap">
+            <div class="icon-brand text-center">
+                <div class="profile">
+                    <h1>taste<i class="fab fa-envira"></i></h1>
+                </div>
+            </div>
+
+            <div class="navbar navbar-dark">
+                <ul class="navbar-nav menu text-left">
+                    <li class="nav-item">
+                        <a class="link" href="/taste">Gallery</a>
+                    </li>
+                    <li class="nav-form">
+                        <form action="/taste" method="GET" class="form-inline nav-item">
+                            <button type="submit" name="search" value="Breakfast" class="link">
+                                Breakfast
+                            </button>
+                        </form>
+                    </li>
+                    <li class="nav-form">
+                        <form action="/taste" method="GET" class="form-inline nav-item">
+                            <button type="submit" name="search" value="Appetizer" class="link">
+                                Appetizer
+                            </button>
+                        </form>
+                    </li>
+                    <li class="nav-form">
+                        <form action="/taste" method="GET" class="form-inline nav-item">
+                            <button type="submit" name="search" value="Entree" class="link">
+                                Entree
+                            </button>
+                        </form>
+                    </li>
+                    <li class="nav-form">
+                        <form action="/taste" method="GET" class="nav-item">
+                            <button type="submit" name="search" value="Dessert" class="link">
+                                Dessert
+                            </button>
+                        </form>
+                    </li>
+                    <hr>
+                    <hr>
+                    <li class="nav-item form-inline"><a class="link" href="#">About</a></li>
+                    <li class="nav-item"><a class="link" href="#">Contact</a></li>
+                </ul>
+                <div class="h5">
+                    <a class="link" href="#"><i class="fab fa-instagram"></i></a>
+                    <a class="link" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="link" href="#"><i class="far fa-envelope"></i></a>
+                </div>
+
+
+            </div>
+            <footer class="footer">
+                <div class="text-left">
+                    <a href="/" class="text-muted meta">Gahelrasoul Web</a>
+                </div>
+            </footer>
+        </div>
+    </nav>
+
+
+
+    <div id="main-container">
+
+        <!-- Masonry Grid -->
+        <section class="listing">
+            <div class="listing-grid">
+                <div id="grid-sizer">
+                </div>
+                <% images.forEach((item) => { %>
+                <div class="grid-item">
+                    <a class="preview" href="#imageModal" data-toggle="modal">
+                        <div class="card text-white">
+                            <img src="<%= item.image %>">
+                            <div class="card-img-overlay">
+                                <i class="fas fa-plus"></i>
+                                <div class="card-img-overlay overlay-background">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <% }) %>
+            </div>
+        </section>
+
+    </div>
+
+
+    <footer class="footer">
+        <div class="text-right">
+            <span class="text-muted meta">Gallery 2020</span>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <script src="scripts/taste.js" defer></script>
+</body>
+
+</html>

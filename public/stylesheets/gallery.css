@@ -1,0 +1,178 @@
+html {
+    min-height: 100%;
+    position: relative;
+}
+body {
+    height: 100%;
+    padding-top: 70px;
+    margin-bottom: 60px;
+    /* padding-bottom: 40px; */
+    font-family: 'Lato', sans-serif;
+}
+
+.jumbotron {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #111;
+    padding: 0;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    height: 460px;
+    background-image: url("/imgs/CameraLensBanner.png");
+    background-position: bottom;
+    background-size: cover;
+    border-radius: 0;
+}
+
+/* Navbar */
+.navbar-light .navbar-brand {
+    font-size: 2.7em;
+    font-weight: 100;
+    text-shadow: .5px 0;
+}
+
+button[type="submit" i] {
+    background-color: #fff;
+    padding: auto;
+    border: 0;
+}
+button[type="submit" i]:focus {
+    outline: none;
+}
+
+.navbar-light .navbar-nav .nav-link {color: #000;}
+.navbar-light .navbar-nav .h5 {
+    margin-top: auto;
+    margin-bottom: 0;
+}
+.navbar-light .navbar-nav .nav-link:hover {color: #df6717;}
+.navbar-light .navbar-nav .active > .nav-link {color: #ff9249;}
+.icon {
+    width: 50px;
+    padding-bottom: .1334em;
+    transition: width .5s
+}
+.navbar {height: 80px;}
+#main-nav {
+    font-size: 1em;
+    background-color: #ffffff;
+}
+.navToggle {
+    height: 250px!important;
+    transition: height 300ms
+}
+/* Navbar fade effect */
+.navbar.scrollDown {
+    box-shadow: 0 5px 10px rgb(0, 0, 0, .2);
+    height: 60px;
+    transition: box-shadow 500ms;
+    transition: height 500ms;
+}
+.navbar.scrollUp {
+    box-shadow: 0 0;
+    height: 80px;
+    transition: box-shadow 500ms;
+    transition: height 500ms;
+}
+.scrollDown .scrollDown-brand {
+    font-size: 1.8em;
+    transition: font-size 500ms;
+}
+.scrollUp .scrollUp-brand {
+    font-size: 2.7em;
+    transition: font-size 500ms;
+}
+.scrollDown .icon {
+    width: 35px;
+}
+.scrollUp .icon {
+    width: 50px;
+}
+
+/* Footer */
+.footer {
+    background-color: #fff;
+    width: 100%;
+    bottom: 0;
+    height: 60px;
+    position: absolute;
+}
+.meta {font-size: .8em;}
+.meta:hover {text-decoration: none;}
+.footer .nav-link:hover {color: #df6717;}
+
+ /* Masonry Grid */
+.grid-item {
+    float: left;
+    margin: 5px;
+    width: 33.33%;
+    padding: 10px;
+    margin: 0;
+  }
+/* fluid 5 columns */
+#grid-sizer{ 
+    width: 33.33%;
+}
+.grid-item img {
+    display: block;
+    width: 100%;
+}
+.listing {
+    padding: 0;
+    margin: 250px 0 0;
+}
+.listing-grid {
+    border-left: 10px solid #fff;
+    border-right: 10px solid #fff;
+    background-color: #fff;
+    
+}
+
+/* Modal */
+.modal .modal-content {
+    max-width: fit-content;
+    margin: auto;
+    border: 0;
+    background: none;
+}
+body .modal-dialog { 
+    margin: auto;
+    padding: 0;
+    max-width: 80%;
+}
+.modal-content img {
+    margin: auto;
+    max-width: inherit;
+    width: auto;
+    height: 100vh;
+}
+
+/* Card overlay */
+.card-title {font-size: 2em;}
+.card-text {font-size: 1.2em;}
+.card-img-overlay {
+    opacity:0;
+}
+.card-img-overlay:hover {
+    opacity:1;
+    transition: opacity 300ms;
+}
+.overlay-background {
+    background-color: #a54b10;
+}
+.overlay-background:hover {
+    opacity: .4;
+    transition: opacity 300ms;
+}
+.card {
+    border: 0;
+}
+
+/* mobile/tablet size edits */
+@media (max-width:768px){
+    #main-nav {
+        padding-top: 1px;
+    }
+}
