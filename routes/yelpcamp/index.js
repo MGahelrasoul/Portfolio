@@ -5,7 +5,7 @@ var express     = require("express"),
 
 //Root Route
 router.get("/", (req, res) => {
-    res.render("yelpcamp/landing");
+    res.redirect("/yelpcamp/campgrounds");
 });
 
 // Show Register form

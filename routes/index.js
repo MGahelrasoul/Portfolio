@@ -1,8 +1,7 @@
 var express     = require("express"),
     router      = express.Router(),
     nodemailer = require("nodemailer"),
-    GMAIL_USER = 'gahelrasoul.m@gmail.com',
-    GMAIL_PASS = ''
+    multiparty = require("multiparty")
 
 router.get('/', (req, res) => {
     res.render('landing')
@@ -10,45 +9,70 @@ router.get('/', (req, res) => {
 router.get('/tetris', (req, res) => {
     res.render('tetris')
 })
+router.get("/error", (req, res) => {
+    res.render('error page')
+})
 
+// Instantiate the SMTP server
+const transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 587,
+    auth: {
+        user: process.env.EMAIL,
+        pass: process.env.PASS
+    },
+    tls: {
+        // do not fail on invalid certs
+        rejectUnauthorized: false,
+    }
+})
 
+// Verify connection configuration
+transporter.verify(function (error, success) {
+    if (error) {
+        console.log(error)
+    }
+    else {
+        console.log("Server is ready to recieve messages")
+    }
+})
 // POST route from contact form
 router.post('/contact', (req, res) => {
-    // Instantiate the SMTP server
-    const smtpTrans = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
-        port: 465,
-        secure: true,
-        auth: {
-        user: GMAIL_USER,
-        pass: GMAIL_PASS
+    // Parse accepted form data
+    let form = new multiparty.Form()
+    let data = {}
+    form.parse(req, function (err, fields) {
+        console.log(fields)
+        Object.keys(fields).forEach(function (property) {
+        data[property] = fields[property].toString()
+        })
+    
+        // Configure the mail object
+        const mail = {
+        from: data.name,
+        to: process.env.EMAIL,
+        subject: data.subject,
+        text: `${data.name} <${data.email}> \n${data.message}`,
         }
-    })
-    // Specify what the email will look like
-    const mailOpts = {
-        from: 'Your sender info here', // This is ignored by Gmail
-        to: GMAIL_USER,
-        subject: 'New Message From Portfolio Contact',
-        text: `${req.body.name} (${req.body.email}) says: ${req.body.message}`
-    }
-
-    // Attempt to send the email
-    smtpTrans.sendMail(mailOpts, (error, response) => {
-        if (error) {
-            req.flash('error', 'contact-failure') // Show a notice indicating failure
-            console.log(error)
-            res.redirect("/")
-        }
-        else {
-            req.flash('success', 'Message Sent!') // Show a notice indicating success
-            res.redirect("/")
-        }
+    
+        // Attempt to send the email
+        transporter.sendMail(mail, (err, data) => {
+            if (err) {
+                console.log(err);
+                    req.flash('error', 'contact-failure') // Show a notice indicating failure
+                    res.redirect("/")
+                    console.log(err)
+            } else {
+                    req.flash('success', 'Message Sent!') // Show a notice indicating success
+                    res.redirect("/")
+            }
+        })
     })
 })
 
 // // Reroute all other addresses to landing page
 // router.get("/*", (req, res) => {
-//     res.redirect("/")
+//     res.status(404).render('error page')
 // })
 
 module.exports = router;

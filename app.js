@@ -26,8 +26,7 @@ const express = require('express'),
 // Connect to MongoDB
 mongoose.connect("mongodb://localhost/Portfolio", {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false
+    useUnifiedTopology: true
 })
 .then(() => console.log("CONNETED TO DB"))
 .catch((error) => console.log(error.message))
@@ -67,6 +66,11 @@ app.use("/techblog", techblogRoutes);
 app.use("/yelpcamp", ycIndexRoutes);
 app.use("/yelpcamp/campgrounds", ycCampgroundRoutes);
 app.use("/yelpcamp/campgrounds/:id/comments", ycCommentRoutes);
+
+// Reroute all other addresses to landing page
+app.get("/*", (req, res) => {
+    res.status(404).redirect('/error')
+})
 
 app.listen(3000, () => {
     console.log('SERVER STARTED')
