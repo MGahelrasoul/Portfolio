@@ -330,7 +330,7 @@ nav {
 
 /* About Image/Border effects */
 .about-img {
-    background-image: url(../imgs/bg.png);
+    background-image: url(../imgs/profile.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -426,6 +426,7 @@ nav {
     background-color: var(--color-white);
     height: 100%;
     width: 100%;
+    transition: all .4s ease;
 }
 .text-content {
     transition: all .4s ease;
@@ -599,9 +600,9 @@ footer.footer {
 
     /* Animation */
 
-/* .animated {
+.animated {
     opacity: 0;
-} */
+}
 .fadeDown {
     animation-duration: 1s;
     animation-fill-mode: both;
@@ -697,6 +698,9 @@ footer.footer {
     .navbar-toggler-icon, .offcanvas-header .btn-close, .navbar.scrollUp, .about-img, .about-border, 
     .github-link, .site-link, .linkedin-link {
         transition: all 0s;
+    }
+    .animated {
+        opacity: 1;
     }
  }
 @media (max-width: 640px) {
