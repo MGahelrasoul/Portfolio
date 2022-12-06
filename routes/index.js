@@ -4,13 +4,19 @@ var express     = require("express"),
     multiparty = require("multiparty")
 
 router.get('/', (req, res) => {
+    delete req.session.getReturn;
+    req.session.getReturn = req.originalUrl;
     res.render('landing')
 })
 router.get('/tetris', (req, res) => {
+    delete req.session.getReturn;
+    req.session.getReturn = req.originalUrl;
     res.render('tetris')
 })
 router.get("/error", (req, res) => {
-    res.render('error page')
+    delete req.session.getReturn;
+    req.session.getReturn = req.originalUrl;
+    res.render('error')
 })
 
 // Instantiate the SMTP server
@@ -72,7 +78,7 @@ router.post('/contact', (req, res) => {
 
 // // Reroute all other addresses to landing page
 // router.get("/*", (req, res) => {
-//     res.status(404).render('error page')
+//     res.status(404).render('error')
 // })
 
 module.exports = router;
