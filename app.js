@@ -26,7 +26,7 @@ const express = require('express'),
 
     MongoDBStore = require("connect-mongo")
 
-const dbUrl = "mongodb://localhost/Portfolio"; //process.env.DB_URL;
+const dbUrl = process.env.DB_URL || "mongodb://localhost/Portfolio"; //process.env.DB_URL;
 
     // Connect to MongoDB via mongoose
  
@@ -59,9 +59,10 @@ app.use(mongoSanitize());
 
     // Session Store
 
+const secret = process.env.SECRET || "Apple Bottom Jeans";
 const store = MongoDBStore.create({
     mongoUrl: dbUrl,
-    secret: "thisshouldbeabettersecret",
+    secret: secret,
     touchAfter: 24 * 3600,
 });
 store.on("error", function(e) {
@@ -72,7 +73,7 @@ store.on("error", function(e) {
 const sessionConfig = {
     store,
     name: "session",
-    secret: "Apple bottom Jeans",
+    secret: secret,
     resave: false,
     saveUninitialized: true,
     cookie: {
